@@ -1,0 +1,29 @@
+pegdown (1.6.0-1.1) unstable; urgency=medium
+
+  * Non maintainer upload by the Reproducible Builds team.
+  * No source change upload to rebuild on buildd with .buildinfo files.
+
+ -- Holger Levsen <holger@debian.org>  Tue, 29 Dec 2020 00:21:55 +0100
+
+pegdown (1.6.0-1) unstable; urgency=medium
+
+  * New upstream release
+    - Refreshed debian/pom.xml
+  * Build with Maven instead of Ant
+  * Standards-Version updated to 3.9.8
+  * Use secure Vcs-* URLs
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Wed, 20 Jul 2016 16:31:58 +0200
+
+pegdown (1.5.0-1) unstable; urgency=medium
+
+  * New upstream release
+    - Refreshed debian/pom.xml
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Thu, 19 Mar 2015 14:28:19 +0100
+
+pegdown (1.4.2-1) unstable; urgency=medium
+
+  * Initial release (Closes: #685874)
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Mon, 10 Nov 2014 23:21:50 +0100

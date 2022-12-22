@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+VERSION = $(shell dpkg-parsechangelog | sed -rne 's/^Version: ([0-9.]+)[-+].*$$/\1/p')
+
+%:
+	dh $@ --buildsystem=maven
+
+override_dh_auto_configure:
+	cp debian/pom.xml .
+	dh_auto_configure
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f pom.xml
+
+get-orig-source:
+	uscan --download-current-version --force-download --rename
+
+get-orig-pom:
+	wget http://central.maven.org/maven2/org/pegdown/pegdown/$(VERSION)/pegdown-$(VERSION).pom -O debian/pom.xml

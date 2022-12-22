@@ -1,0 +1,192 @@
+Version 1.6.0 (2015-09-18)
+--------------------------
+- Fixed collision between ANCHORLINKS and STRIKETHROUGH, WIKILINKS extensions (#161)
+- Fixed handling of image `alt` attributes
+- Improved parsing and rendering of nested lists in numerous ways
+- Improved HTML tag recognition
+- Fixed problem in Definition List parsing (#180)
+- Fixed escaping of special chars used by disabled extensions (#179)
+- Extended `StrikeNode` with `isClosed` member (#178)
+- Fixed reference node including trailing blank lines (#177)
+- Fixed Setext header handling to allow trailing spaces/tabs (#176)
+- Fixed `CaptionNode` not having source index range set (#175)
+- Added `ATXHEADERSPACE` extension to require a space/tab after # in AtxHeaders (#144)
+- Added `RELAXEDHRULES` extenstion to relax requirement of a blank line after horiz. rule. (#129)
+- Fixed `STRIKETHROUGH` extension not adding `~` to special characters (#131)
+- Fixex Wiki Link alternate format (#182)
+- Fixed `TableCellNode` not including trailing `|` (#183)
+- Fixed block quotes not followed by another block quote including trailing blank lines (#184)
+- Added `TASKLISTITEMS` optional extension to handle GFM style task list items (#185)
+- Added `isSetext` to `HeaderNode` to distiguish between Atx and Setext types (#186)
+- Added `ALL_OPTIONALS` and `ALL_WITH_OPTIONALS` extension set
+- Added `EXTANCHORS` optional extension
+- Fixed two or more blank lines between list items breaking the list into separate lists (#190)
+- Fixed paragraph wrapping for list items would produce an AST different from how blank lines before list items (#192)
+- Changed `private` to `protected` methods in `ToHtmlSerializer` so that it can be extended without duplicating code (#193)
+
+
+Version 1.5.0 (2013-12-0)
+-------------------------
+- Upgraded to parboiled 1.1.7
+- Fixed problem with recognizing Wikilinks
+- Fixed problem in image tag HTML rendering
+- Added anchor links to headers
+- Added timeout check in label rule (#104)
+- Added new helper method to PegDownProcessor to supply list of ToHtmlSerializerPlugin's to ToHtmlSerializer.
+
+
+Version 1.4.2 (2013-12-09)
+--------------------------
+- Fix autolinks not ending at `<` character (#102)
+- Enable LinkRenderer to influence image rendering (#95)
+- Add STRIKETHROUGH extension
+- Upgrade to parboiled 1.1.6
+
+
+Version 1.4.1 (2013-07-20)
+--------------------------
+- Added support for extending SpecialChar rule via plugin
+
+
+Version 1.4.0 (2013-06-23)
+--------------------------
+- Added basic plugin support (see #77, thx to James Roper and also Jakub Jirutka)
+
+
+Version 1.3.0 (2013-06-04)
+--------------------------
+- Upgraded to parboiled 1.1.5
+- Improved handling of emph/strong (fixes #43, #65 and #78, thx a lot to Elmer van Chastelet for the patch!)
+- Added extensible, type-specific serialization for code blocks (thx to Jared Bunting)
+
+
+Version 1.2.1 (2012-11-27)
+--------------------------
+- Upgraded to parboiled 1.1.4
+- Added support for caption on tables (thx to Geoffrey Picron)
+
+
+Version 1.2.0 (2012-10-05)
+--------------------------
+- Upgraded to parboiled 1.1.3
+- Implemented parsing timeout, closes #42
+- Fixed IndexOutOfBoundsException in ToHtmlSerializer, closes #39
+- Changed parser to not swallow backslash before non-special characters, fixes #35
+- Added test for fenced code blocks containing an empty line, closes #61
+- Migrated all tests from TestNG to specs2
+- Switched build tool from Apache Buildr to SBT
+
+
+Version 1.1.0 (2011-10-05)
+--------------------------
+- Upgraded to parboiled 1.0.2
+- Introduced LinkRenderer layer for easy customization of HTML link rendering
+- Added support for [[Wiki-style]] links, thx to Brett Porter
+- Fixed #27 (Missing emphasis when paragraph has multiple lines)
+- Fixed #28 (Parser not fully extensible)
+- Fixed #32, #33 (HTML tags with attribute names containing underscores are not recognized as tags, thx to Edward Samson)
+- Fixed #34 (Pathologically slow parsing when strong and italics emphasis are applied together)
+
+
+Version 1.0.2 (2011-07-05)
+--------------------------
+- Simplify custom extensions by making `private` fields/methods of ToHtmlSerializer and Parser `protected`
+- Fixed #20 (support GFM fenced code blocks)
+- Fixed #21 (simplify integration of custom code transformers)
+- Fixed #22 (some characters/sequences break links when AutoLinks extensions is on)
+- Fixed broken Java 1.5 compatibility (thx to Julien Nicoulaud)
+- Fixed maven build: add testng and jtidy deps for tests, and configure the compiler plugin for java 5 (thx to Lukas Theussl)
+
+
+Version 1.0.1 (2011-05-17)
+--------------------------
+- Fixed #18 (code blocks in list items split by lines)
+
+
+Version 1.0.0 (2011-05-13)
+--------------------------
+- Closed #3 (PhpMarkdownExtra-style definition lists)
+- closed #14 (superfluous paragraph breaks)
+- Closed #15 (email obfuscation)
+- Closed #16 (PhpMarkdownExtra-style fenced code blocks)
+- Closed #17 ('nofollow' links)
+- Added buffer indices to AST nodes, enabling markdown syntax highlighting
+- Removed tabstop expansion (prevented proper AST node index building)
+- Improved single quoting rules for Smartypants extension
+- Completely refactored list parsing for code size, performance and simplicity
+- Fixed small problem with AutoLink delimiters
+- Upgraded to parboiled 1.0.0
+
+
+Version 0.9.2 (2011-04-06)
+--------------------------
+- Fix: special characters not encoded correctly in plain text sections
+- Fix: HTML hex entities incorrectly parsed
+- Add indices into underlying buffer to AST nodes
+- Upgraded to parboiled 0.11.1
+
+
+Version 0.9.1 (2011-03-21)
+--------------------------
+- Upgraded to parboiled 0.11.0
+
+
+Version 0.9.0 (2011-02-11)
+--------------------------
+- Completely overhauled and cleaned up general architecture, split out HTML serialization into AST visitor (thanks to Ravindar Reddy)
+- Fixed bug causing the disappearance of text elements in certain list constructs
+- Fixed excessive backtracking bug on parsing larger blocks of 'opening-tags-only' HTML
+- Fixed file name casing problem causing certain tests to fail on case-sensitive file systems
+- Implemented various smaller performance improvements resulting in a general speed-up by 10-30%
+- Opened up PegDownProcessor and Parser to custom extensions
+- Switched from Ant to Buildr, changed to maven-style project layout
+- Changed to 3 part version numbering in preparation of the coming semantic versioning compatibility (http://semver.org)
+- Upgraded to parboiled 0.10.1
+
+
+Version 0.8.5.4 (2010-10-04)
+----------------------------
+- Switched off superfluous parse tree building resulting in nearly doubled parsing performance
+- Upgraded to parboiled 0.9.9.0
+
+
+Version 0.8.5.3 (2010-08-13)
+----------------------------
+- Added HTML suppression options
+- Upgraded to parboiled 0.9.8.2 (another ~ 5% performance increase by using a few @MemoMismatches annotations)
+
+
+Version 0.8.5.2 (2010-08-12)
+----------------------------
+- Upgraded to parboiled 0.9.8.1 (~ 10% performance increase, slightly simplified parser)
+
+
+Version 0.8.5.1 (2010-06-19)
+----------------------------
+- Fixed several problems, especially with regard to image links (thanks to Nick Ewing for the report)
+- Added support for double angle quotes to the QUOTES extension
+- Further increased test coverage
+
+
+Version 0.8.5.0 (2010-06-14)
+----------------------------
+- Completely rewrote AST implementation improving maintainability and simplifying further extensions
+- Fixed different problems, mainly related to the ABBREVIATIONS extension
+- Added TABLES extension
+- Added simple benchmarking "test"
+
+
+Version 0.8.1.0 (2010-06-08)
+----------------------------
+- Fixed problem with SetextHeading2
+- Fixed performance problem in inputs with complex emphasis constructs
+- Added ABBREVIATIONS extension
+- Added HARDWRAPS extension
+- Added AUTOLINKS extension
+- Added support for parens in link urls (must be escaped in explicit links)
+- Expanded test coverage
+
+
+Version 0.8.0.1 (2010-04-30)
+----------------------------
+first public release

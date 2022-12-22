@@ -1,0 +1,20 @@
+Source: pegdown
+Section: java
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Emmanuel Bourg <ebourg@apache.org>
+Build-Depends: debhelper (>= 9), default-jdk, maven-debian-helper, libparboiled-java
+Standards-Version: 3.9.8
+Vcs-Git: https://anonscm.debian.org/git/pkg-java/pegdown.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-java/pegdown.git
+Homepage: http://pegdown.org
+
+Package: libpegdown-java
+Architecture: all
+Depends: ${misc:Depends}, ${maven:Depends}
+Suggests: ${maven:OptionalDepends}
+Description: Lightweight Markdown processing library
+ Pegdown is nearly 100% compatible with the original Markdown specification
+ and fully passes the original Markdown test suite. On top of the standard
+ Markdown feature set pegdown implements a number of extensions similar
+ to what other popular Markdown processors offer.
